@@ -2,3 +2,4 @@ langchain
 langchain-openai
 streamlit
 streamlit-chat
+#so that these can be downloaded before running the chatbot.
