@@ -1,4 +1,4 @@
-import streamlit as st
+=import streamlit as st
 from streamlit_chat import message
 # from langchain.chat_models import ChatOpenAI
 from langchain_openai import ChatOpenAI
@@ -42,7 +42,7 @@ if prompt := st.chat_input("Ask a question..."): #Prompting for user input and s
     st.session_state.messages.append({"role": "user", "content": prompt})
 
 for message in st.session_state.messages: #Displaying the previous chat messages.
-    if message["role"] = "assistant":
+    if message["role"] == "assistant":
         with st.chat_message(message["role"], avatar = "🤖"): #Using streamlit_chat.    
             st.write(message["content"])
     else:
