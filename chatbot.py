@@ -31,8 +31,8 @@ llm = ChatOpenAI(model = "meta-llama/Llama-3.2-90B-Vision-Instruct-Turbo",
 conversation = ConversationChain(memory=st.session_state.buffer_memory, llm=llm)
 
 #Creating the user interface.
-st.title("🗣️ Conversational Chatbot")
-st.subheader("㈻ Simple Chat Interface for LLMs by Tanishka Sehgal")
+st.title("Conversational Chatbot")
+st.subheader("Simple Chat Interface for LLMs by Tanishka Sehgal")
 
 # prompt = st.chat_input('Ask a question...')
 # if prompt:
@@ -42,8 +42,12 @@ if prompt := st.chat_input("Ask a question..."): #Prompting for user input and s
     st.session_state.messages.append({"role": "user", "content": prompt})
 
 for message in st.session_state.messages: #Displaying the previous chat messages.
-    with st.chat_message(message["role"]): #Using streamlit_chat.
-        st.write(message["content"])
+    if message["role"] = "assistant":
+        with st.chat_message(message["role"], avatar = "🤖"): #Using streamlit_chat.    
+            st.write(message["content"])
+    else:
+        with st.chat_message(message["role"], avatar = "🏋️‍♀️"): 
+            st.write(message["content"])
 
 #If the last message is not from the assistant, generate a new response.
 if st.session_state.messages[-1]["role"] != "assistant":
